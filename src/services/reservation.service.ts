@@ -1,5 +1,5 @@
 import api from './api';
-import { MedicalService, Doctor } from '../types';
+import type { MedicalService, Doctor } from '../types';
 
 const getAllServices = () => {
   return api.get<MedicalService[]>('/services'); 
