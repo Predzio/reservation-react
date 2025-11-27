@@ -1,7 +1,7 @@
 import api from './api';
 import { jwtDecode } from "jwt-decode";
 
-const login = async(email, password) => {
+const login = async(email: string, password: string) => {
     const response = await api.post('/auth/login', {email, password});
 
     if(response.data.token) {
@@ -22,7 +22,9 @@ const getCurrentUser = () => {
     if(token){
         try{
             const decoded = jwtDecode(token);
-            const userData = JSON.parse(localStorage.getItem('user_data'));
+            const userDataString = localStorage.getItem('user_data');
+            const userData = userDataString ? JSON.parse(userDataString) : {};
+
             return {...decoded, ...userData};
         } catch(e){
             return null;

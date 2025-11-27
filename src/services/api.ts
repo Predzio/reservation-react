@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { config } from 'process';
 
 const API_URL = 'http://localhost:8080/api';
 

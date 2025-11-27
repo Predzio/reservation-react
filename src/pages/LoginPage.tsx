@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {useAuth} from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -21,7 +21,7 @@ const LoginPage = () => {
     const { login } = useAuth();
     const navigate = useNavigate();
   
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: { preventDefault: () => void; }) => {
       e.preventDefault();
       setError('');
       try {
