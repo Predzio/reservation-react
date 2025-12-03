@@ -1,5 +1,17 @@
 import api from './api';
 import { jwtDecode } from "jwt-decode";
+import type { AuthResponse } from '../types';
+
+interface RegisterData {
+    email: string;
+    password: string;
+    firstName: string;
+    lastName: string;
+}
+
+const register = async (data: RegisterData) => {
+    return api.post('/auth/register', data);
+}
 
 const login = async(email: string, password: string) => {
     const response = await api.post('/auth/login', {email, password});
@@ -34,6 +46,7 @@ const getCurrentUser = () => {
 }
 
 export default{
+    register,
     login,
     logout,
     getCurrentUser

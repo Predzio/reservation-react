@@ -67,9 +67,19 @@ const HomePage = () => {
                 </Button>
             </Box>
           ) : (
-            <Button color="inherit" variant="outlined" onClick={() => navigate('/login')}>
-                Zaloguj się
-            </Button>
+            <Box>
+              <Button color="inherit" variant="outlined" onClick={() => navigate('/login')} sx={{mr:1}}>
+                Sign in
+              </Button>
+              <Button 
+                variant="contained" 
+                color="secondary" // Inny kolor dla wyróżnienia
+                onClick={() => navigate('/register')}
+              >
+                Register
+              </Button>
+            </Box>
+            
           )}
         </Toolbar>
       </AppBar>
